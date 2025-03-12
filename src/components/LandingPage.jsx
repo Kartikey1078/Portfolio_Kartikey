@@ -9,7 +9,11 @@ function LandingPage() {
   return (
     <nav className="bg-gray-900 text-white p-4 shadow-lg fixed w-full z-50 font-sans">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-3xl font-extrabold tracking-wide">KARTIKEY</div>
+        <div className="text-3xl font-extrabold tracking-wide">
+            KARTIKEY
+            <div className="absolute top-28 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-gray-400 space-y-6">
+      </div>
+        </div>
         
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 text-lg">
@@ -58,18 +62,14 @@ function LandingPage() {
         initial={{ x: "-100%", opacity: 0 }} 
         animate={{ x: isOpen ? "0%" : "-100%", opacity: isOpen ? 1 : 0 }} 
         transition={{ type: "spring", stiffness: 120, damping: 15 }}
-        className="md:hidden fixed top-0 left-0 w-3/4 h-full bg-gray-900 bg-opacity-95 flex flex-col items-start pl-10 pt-20 space-y-8 text-2xl font-semibold"
+        className="md:hidden  fixed top-16 left-0 w-full h-16 bg-gray-900 bg-opacity-95 flex items-center justify-around  space-x-8"
       >  
-        <button className="absolute top-6 right-6 text-gray-300 hover:text-gray-500 transition" onClick={() => setIsOpen(false)}>
-          <X size={36} />
-        </button>
-        
-        {/* Mobile Links */}
+        {/* Mobile Links (Aligned in a single line with icons) */}
         <Link 
           to="ABOUT" 
           smooth={true} 
           duration={500} 
-          className="hover:text-gray-400 transition duration-300 flex items-center space-x-2"
+          className="hover:text-gray-400  transition duration-300 flex flex-col items-center space-x-2 m-0"
         >
           <User size={24} /> <span>ABOUT</span>
         </Link>
@@ -77,7 +77,7 @@ function LandingPage() {
           to="SKILLS" 
           smooth={true} 
           duration={500} 
-          className="hover:text-gray-400 transition duration-300 flex items-center space-x-2"
+          className="hover:text-gray-400 transition duration-300 flex flex-col items-center space-x-2 m-0"
         >
           <Code size={24} /> <span>SKILLS</span>
         </Link>
@@ -85,7 +85,7 @@ function LandingPage() {
           to="PROJECTS" 
           smooth={true} 
           duration={500} 
-          className="hover:text-gray-400 transition duration-300 flex items-center space-x-2"
+          className="hover:text-gray-400 transition duration-300 flex flex-col items-center space-x-2 m-0"
         >
           <Folder size={24} /> <span>PROJECTS</span>
         </Link>
@@ -93,21 +93,18 @@ function LandingPage() {
           to="CONTACT" 
           smooth={true} 
           duration={500} 
-          className="hover:text-gray-400 transition duration-300 flex items-center space-x-2"
+          className="hover:text-gray-400 transition duration-300 flex flex-col items-center space-x-2 m-0"
         >
           <Mail size={24} /> <span>CONTACT</span>
         </Link>
         
-        {/* Social Icons */}
-        <div className="mt-8 flex space-x-6 text-gray-400">
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
-            <Linkedin size={28} />
-          </a>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
-            <FileText size={28} />
-          </a>
-        </div>
+        {/* Close button for mobile menu
+        <button className="absolute top-4 right-6 text-gray-300 hover:text-gray-500 transition" onClick={() => setIsOpen(false)}>
+          <X size={36} />
+        </button> */}
       </motion.div>
+
+      
     </nav>
   );
 }
