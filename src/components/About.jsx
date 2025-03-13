@@ -3,14 +3,14 @@ import { motion } from 'framer-motion';
 
 function About() {
   return (
-    <section id="ABOUT" className="relative bg-gray-900 text-white py-20">
+    <section id="ABOUT" className="relative bg-gray-900 text-white py-20 ">
       {/* Parallax Background */}
       <div 
-        className="absolute inset-0 bg-cover bg-fixed opacity-30"
+        className="absolute inset-0 bg-cover bg-fixed opacity-30 "
         style={{ backgroundImage: "url('https://source.unsplash.com/1600x900/?technology,coding')" }}
       ></div>
       
-      <div className="container mx-auto px-6 lg:px-20 relative z-10 flex flex-col items-center">
+      <div className="container mx-auto px-6 lg:px-20 relative z-10 flex flex-col items-center mt-[50px]">
         {/* Text Section */}
         <motion.div 
           initial={{ opacity: 0, y: 50 }} 

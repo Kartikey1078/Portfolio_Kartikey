@@ -1,19 +1,20 @@
 import React, { useRef } from "react";
 import emailjs from "emailjs-com";
-import { Linkedin, Github } from "lucide-react"; // Import LinkedIn & GitHub icons
+import { Linkedin, Github, FileText } from "lucide-react"; // Import icons
 
 const ContactPage = () => {
   const form = useRef();
 
   const sendEmail = (e) => {
+    debugger
     e.preventDefault();
 
     emailjs
       .sendForm(
-        "your_service_id", // Replace with your EmailJS service ID
-        "your_template_id", // Replace with your EmailJS template ID
+        "service_2ubbx98", // Replace with your EmailJS service ID
+        "template_fdgc86i", // Replace with your EmailJS template ID
         form.current,
-        "your_user_id" // Replace with your EmailJS user/public key
+        "dyZNkcP4GG0WFF_vF" // Replace with your EmailJS user/public key
       )
       .then(
         (result) => {
@@ -36,6 +37,7 @@ const ContactPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           
+          {/* Contact Form */}
           <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
             <h3 className="text-2xl font-bold text-yellow-400 mb-4">
               Get in Touch
@@ -80,25 +82,37 @@ const ContactPage = () => {
             ></iframe>
 
             {/* Social Media Links */}
-            <div className="mt-6 flex justify-center space-x-6">
-              {/* LinkedIn */}
-              <a
-                href="https://www.linkedin.com/in/kartikey-tyagi-web3/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-yellow-400 hover:text-yellow-500 transition"
-              >
-                <Linkedin size={40} />
-              </a>
+            <div className="mt-6 flex flex-col items-center space-y-6">
+              <div className="flex space-x-6">
+                {/* LinkedIn */}
+                <a
+                  href="https://www.linkedin.com/in/kartikey-tyagi-web3/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-yellow-400 hover:text-yellow-500 transition"
+                >
+                  <Linkedin size={40} />
+                </a>
 
-              {/* GitHub */}
+                {/* GitHub */}
+                <a
+                  href="https://github.com/Kartikey1078"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-yellow-400 hover:text-yellow-500 transition"
+                >
+                  <Github size={40} />
+                </a>
+              </div>
+
+              {/* Download Resume Button */}
               <a
-                href="https://github.com/Kartikey1078"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-yellow-400 hover:text-yellow-500 transition"
+                href="/CVKartikey.pdf"
+                download="Kartikey_Resume.pdf"
+                className="flex items-center space-x-2 bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg shadow-md hover:bg-yellow-500 transition"
               >
-                <Github size={40} />
+                <FileText size={28} />
+                <span className="text-lg font-bold">Download Resume</span>
               </a>
             </div>
           </div>
