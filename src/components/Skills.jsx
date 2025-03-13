@@ -43,31 +43,36 @@ function Skills() {
         </motion.h2>
 
         {/* Infinite Scrolling Wrapper */}
-        <div className="relative h-auto sm:h-[400px] overflow-hidden">
+        <div className="relative h-[300px] sm:h-[400px] overflow-hidden">
           <motion.div
-            className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 w-full"
-            animate={{ y: ["0%", "-50%"] }}
+            className="absolute w-full flex flex-col gap-6"
+            animate={{ y: ["0%", "-100%"] }}
             transition={{
               duration: 10,
               repeat: Infinity,
               ease: "linear",
             }}
           >
-            {[...skills, ...skills].map((skill, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center space-y-2 sm:space-y-3 hover:scale-105 transition-transform duration-300"
-              >
-                <motion.img
-                  src={skill.logo}
-                  alt={skill.name}
-                  className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 object-contain"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                />
-                <p className="text-lg sm:text-xl font-semibold tracking-wide">
-                  {skill.name}
-                </p>
+            {/* DUPLICATING SKILLS LIST FOR INFINITE EFFECT */}
+            {[...Array(2)].map((_, i) => (
+              <div key={i} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-10">
+                {skills.map((skill, index) => (
+                  <div
+                    key={`${i}-${index}`}
+                    className="flex flex-col items-center space-y-2 sm:space-y-3 hover:scale-105 transition-transform duration-300"
+                  >
+                    <motion.img
+                      src={skill.logo}
+                      alt={skill.name}
+                      className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 object-contain"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    />
+                    <p className="text-lg sm:text-xl font-semibold tracking-wide">
+                      {skill.name}
+                    </p>
+                  </div>
+                ))}
               </div>
             ))}
           </motion.div>
