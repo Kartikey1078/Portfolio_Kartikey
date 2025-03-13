@@ -32,7 +32,7 @@ function Skills() {
       id="SKILLS"
       className="bg-gray-900 text-white py-16 overflow-hidden relative"
     >
-      <div className="container mx-auto text-center px-4 sm:px-8 w-full max-w-5xl">
+      <div className="container mx-auto text-center px-4 sm:px-8 w-full max-w-6xl">
         <motion.h2
           className="text-3xl sm:text-4xl font-extrabold mb-8 text-yellow-400"
           initial={{ opacity: 0, y: -20 }}
@@ -43,12 +43,12 @@ function Skills() {
         </motion.h2>
 
         {/* Infinite Scrolling Wrapper */}
-        <div className="h-[350px] sm:h-[400px] overflow-hidden relative">
+        <div className="relative h-auto sm:h-[400px] overflow-hidden">
           <motion.div
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 sm:gap-10 absolute top-0 left-1/2 transform -translate-x-1/2"
-            animate={{ y: ["0%", "-100%"] }}
+            className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 w-full"
+            animate={{ y: ["0%", "-50%"] }}
             transition={{
-              duration: 15,
+              duration: 10,
               repeat: Infinity,
               ease: "linear",
             }}
@@ -61,11 +61,11 @@ function Skills() {
                 <motion.img
                   src={skill.logo}
                   alt={skill.name}
-                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
+                  className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 object-contain"
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 />
-                <p className="text-base sm:text-lg font-semibold tracking-wide">
+                <p className="text-lg sm:text-xl font-semibold tracking-wide">
                   {skill.name}
                 </p>
               </div>
