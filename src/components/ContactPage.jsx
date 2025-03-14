@@ -107,7 +107,7 @@ const ContactPage = () => {
 
               {/* Download Resume Button */}
               <a
-                href="/CVKartikey.pdf"
+                href="/KartikeyCV.pdf"
                 download="Kartikey_Resume.pdf"
                 className="flex items-center space-x-2 bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg shadow-md hover:bg-yellow-500 transition"
               >
